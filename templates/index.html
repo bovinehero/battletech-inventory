@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <h2>This is Index</h2>
+    </div>
+    {% if is_paginated %}
+    <nav aria-label="Page navigation">
+       pagination logic here
+    </nav>
+    {% endif %}
+</div>
+{%endblock%}
