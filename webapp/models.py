@@ -16,7 +16,8 @@ class Pilot(models.Model):
     callsign = models.CharField(max_length=50)
     gunnery = models.IntegerField(blank=True, default=4)
     piloting = models.IntegerField(blank=True, default=5)
-    experience = models.IntegerField(blank=True, default=5)
+    experience = models.IntegerField(blank=True, default=1000)
+    edge = models.IntegerField(blank=True, default=1)
     slug = models.SlugField(max_length=200, unique=True)
     status = models.IntegerField(choices=STATUS, default=0)
 
