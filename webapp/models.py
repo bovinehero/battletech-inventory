@@ -1,10 +1,13 @@
 from django.db import models
 
 # Create your models here.
+
+STATUS = ((0, "Not Available"), (1, "Available"))
+
+
 class Pilot(models.Model):
     """
     A Pilot will have a 1 2 1 relationship with a mech
-    
     """
     callsign = models.CharField(max_length=50)
     gunnery = models.IntegerField(blank=True, default=4)
