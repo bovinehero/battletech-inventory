@@ -1,6 +1,11 @@
 # Battletech Inventory
 
 
+# dB Design
+
+![App dB relationships](docs/images/battletech-db-relationships.png "Battletech Inventroy dB")
+
+# Quickstart
 
 ## Development ENV Setup
 

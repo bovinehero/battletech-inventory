@@ -12,8 +12,9 @@ STATUS = ((0, "Not Available"), (1, "Available"))
 class Pilot(models.Model):
     """
     A Pilot will have a 1 2 1 relationship with a mech
+    # TODO add User relationship
     """
-    callsign = models.CharField(max_length=50)
+    callsign = models.CharField(max_length=50, unique=True)
     gunnery = models.IntegerField(blank=True, default=4)
     piloting = models.IntegerField(blank=True, default=5)
     experience = models.IntegerField(blank=True, default=1000)
@@ -28,7 +29,7 @@ class Mech(models.Model):
     """
     A Pilot will have a 1 2 1 relationship with a mech
     """
-    pilots = models.OneToOneField(Pilot, on_delete=models.CASCADE,
+    pilot = models.OneToOneField(Pilot, on_delete=models.CASCADE,
         primary_key=True, related_name="mechs")
     name = models.CharField(max_length=50)
     category = models.IntegerField(choices=CLASSIFICATION, default=0)
