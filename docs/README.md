@@ -126,3 +126,14 @@ startapp webapp
 a __webapp/urls.py__ file was bootstrapped to allow more modular mports into __core/urls.py__
 
 As the convention is class based views, in __webapp/views.py__ we have a placeholder example with sample code for when the app models are created.
+
+### Heroku Deployment
+
+After requesting a deploy set the following VARS:
+
+- ALLOWED_HOST add in `bhero-battletech-inventory.herokuapp.com`
+- CLOUDINARY_URL get from Cloudinary
+- DATABASE_URL get from elephantSQL
+- DISABLE_COLLECTSTATIC set to `1`
+- PORT set to `8000`
+- SECRET_KEY set to a new generated key as per above
