@@ -14,12 +14,8 @@ class TestModels(TestCase):
         self.assertEqual(pilot.edge, 1)
 
     def test_mech_defaults(self):
-        pilot = Pilot.objects.create(
-            callsign='Test Pilot'
-            )
         mech = Mech.objects.create(
-            name='Test Mech',
-            pilot=pilot
+            name='Test Mech'
             )
         self.assertEqual(mech.status, 0)
         self.assertEqual(mech.category, 0)
@@ -39,12 +35,8 @@ class TestModels(TestCase):
         self.assertEqual(str(pilot), 'Test Pilot')
 
     def test_mech_string_method_returns_name(self):
-        pilot = Pilot.objects.create(
-            callsign='Test Pilot'
-            )
         mech = Mech.objects.create(
-            name='Test Mech',
-            pilot=pilot
+            name='Test Mech'
             )
         self.assertEqual(str(mech), 'Test Mech')
         

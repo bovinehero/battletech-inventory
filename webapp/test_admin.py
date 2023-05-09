@@ -35,12 +35,8 @@ class TestAdmin(TestCase):
         self.assertEqual(Pilot.objects.get(callsign='Test Pilot').status, 0)
 
     def test_approve_mech_approves(self):
-        pilot = Pilot.objects.create(
-            callsign='Test Pilot'
-            )
         mech = Mech.objects.create(
             name='Test Mech',
-            pilot=pilot,
             status=0
             )
         queryset = Mech.objects.filter(name='Test Mech')
@@ -48,12 +44,8 @@ class TestAdmin(TestCase):
         self.assertEqual(Mech.objects.get(name='Test Mech').status, 1)
 
     def test_revoke_mech_revokes(self):
-        pilot = Pilot.objects.create(
-            callsign='Test Pilot'
-            )
         mech = Mech.objects.create(
             name='Test Mech',
-            pilot=pilot,
             status=1
             )
         queryset = Mech.objects.filter(name='Test Mech')
