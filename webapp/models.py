@@ -9,6 +9,8 @@ WEIGHTS = ((0, '20 Ton'), (1, '25 Ton'), (2, '30 Ton'), (3, '35 Ton'), (4, '40 T
 STATUS = ((0, "Not Available"), (1, "Available"))
 
 
+# This setup makes it so every Mech MUST have a pilot - maybe look into changing this
+
 class Pilot(models.Model):
     """
     A Pilot will have a 1 2 1 relationship with a mech
@@ -28,6 +30,7 @@ class Pilot(models.Model):
 class Mech(models.Model):
     """
     A Pilot will have a 1 2 1 relationship with a mech
+    # TODO maybe decouple this and have Game Mech as OneToOnes of Mech and Pilot relationships?
     """
     pilot = models.OneToOneField(Pilot, on_delete=models.CASCADE,
         primary_key=True, related_name="mechs")

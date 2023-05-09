@@ -3,36 +3,46 @@
 {% block content %}
 
 <div class="container-fluid">
-    <h1>This is Pilots List</h1>
+    <h1>This is Mechs List</h1>
     <div class="row">
 
-        <!-- Blog Entries Column -->
+        <!-- Pilot Entries -->
         <div class="col-12 mt-3 left">
             <div class="row">
                 <table class="table">
                     <thead>
                       <tr>
                         <th scope="col">#</th>
-                        <th scope="col">callsign</th>
-                        <th scope="col">gunnery</th>
-                        <th scope="col">piloting</th>
-                        <th scope="col">experience</th>
-                        <th scope="col">edge</th>
+                        <th scope="col">pilot</th>
+                        <th scope="col">name</th>
+                        <th scope="col">category</th>
+                        <th scope="col">weight</th>
+                        <th scope="col">tech_level</th>
+                        <th scope="col">role</th>
                         <th scope="col">slug</th>
+                        <th scope="col">stock</th>
+                        <th scope="col">record_sheet</th>
+                        <th scope="col">battle_value</th>
                         <th scope="col">status</th>
+                        
                       </tr>
                     </thead>
                     <tbody>
-                    {% for pilot in pilot_list %}
+                    {% for mech in mech_list %}
                       <tr>
-                        <th scope="row">{{ pilot.pk }}</th>
-                        <td>{{ pilot.callsign }}</td>
-                        <td>{{ pilot.gunnery }}</td>
-                        <td>{{ pilot.piloting }}</td>
-                        <td>{{ pilot.experience }}</td>
-                        <td>{{ pilot.edge }}</td>
-                        <td>{{ pilot.slug }}</td>
-                        <td>{{ pilot.status }}</td>
+                        <th scope="row">{{ mech.pk }}</th>
+                        <td>{{ mech.pilot }}</td>
+                        <td>{{ mech.name }}</td>
+                        <td>{{ mech.get_category_display }}</td>
+                        <td>{{ mech.get_weight_display }}</td>
+                        <td>{{ mech.get_tech_level_display }}</td>
+                        <td>{{ mech.get_role_display }}</td>
+                        <td>{{ mech.slug }}</td>
+                        <td>{{ mech.stock }}</td>
+                        <td><a href="{{ mech.record_sheet }}" target="_blank"><button class="btn">Go to PDF <i class="fa fa-download"></i></button></a>
+                        </td>
+                        <td>{{ mech.battle_value }}</td>
+                        <td>{{ mech.get_status_display }}</td>
                       </tr>
                     {% endfor %}
                     </tbody>

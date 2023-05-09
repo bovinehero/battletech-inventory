@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <h1>This is Pilots List</h1>
+    <div class="row">
+
+        <!-- Pilot Entries -->
+        <div class="col-12 mt-3 left">
+            <div class="row">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">callsign</th>
+                        <th scope="col">gunnery</th>
+                        <th scope="col">piloting</th>
+                        <th scope="col">experience</th>
+                        <th scope="col">edge</th>
+                        <th scope="col">slug</th>
+                        <th scope="col">status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    {% for pilot in pilot_list %}
+                      <tr>
+                        <th scope="row">{{ pilot.pk }}</th>
+                        <td>{{ pilot.callsign }}</td>
+                        <td>{{ pilot.gunnery }}</td>
+                        <td>{{ pilot.piloting }}</td>
+                        <td>{{ pilot.experience }}</td>
+                        <td>{{ pilot.edge }}</td>
+                        <td>{{ pilot.slug }}</td>
+                        <td>{{ pilot.status }}</td>
+                      </tr>
+                    {% endfor %}
+                    </tbody>
+                  </table>              
+            </div>
+        </div>
+    </div>
+    {% if is_paginated %}
+    <nav aria-label="Page navigation">
+       pagination logic here
+    </nav>
+    {% endif %}
+</div>
+{%endblock%}
