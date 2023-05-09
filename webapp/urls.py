@@ -7,7 +7,8 @@ from django.urls import path
 # NOTE that the post_detail matches the name= value for the slug path converter <slug:slug> <pathconverter:keyword> below
 
 urlpatterns = [
-    path('', views.MechList.as_view(), name='mechs'),
-    path('pilots/', views.PilotList.as_view(), name='home')
+    path('', views.ActiveMechList.as_view(), name='home'),
+    path('pilots/', views.PilotList.as_view(), name='pilots'),
+    path('mechs/', views.MechList.as_view(), name='mechs')
     
 ]

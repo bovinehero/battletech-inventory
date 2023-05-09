@@ -32,9 +32,7 @@ class Mech(models.Model):
     A Pilot will have a 1 2 1 relationship with a mech
     # TODO maybe decouple this and have Game Mech as OneToOnes of Mech and Pilot relationships?
     """
-    pilot = models.OneToOneField(Pilot, on_delete=models.CASCADE,
-        primary_key=True, related_name="mechs")
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50, unique=True)
     category = models.IntegerField(choices=CLASSIFICATION, default=0)
     weight = models.IntegerField(choices=WEIGHTS, default=0)
     tech_level = models.IntegerField(choices=TECH, default=0)
@@ -48,3 +46,11 @@ class Mech(models.Model):
 
     def __str__(self):
         return self.name
+    
+class ActiveMech(models.Model):
+    name = models.CharField(max_length=50, unique=True)
+    pilot = models.OneToOneField(Pilot, on_delete=models.CASCADE,
+        primary_key=True, related_name="active_mech")
+    mech = models.OneToOneField(Mech, on_delete=models.CASCADE,
+                                 related_name="active_pilot")
+    status = models.IntegerField(choices=STATUS, default=0)

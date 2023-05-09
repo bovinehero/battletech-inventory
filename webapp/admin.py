@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Pilot, Mech
+from .models import Pilot, Mech, ActiveMech
 
 # Register your models here.
 
@@ -41,3 +41,6 @@ class MechAdmin(admin.ModelAdmin):
     def revoke_mech(self, request, queryset):
         queryset.update(status=False)
 
+@admin.register(ActiveMech)
+class ActiveMechAdmin(admin.ModelAdmin):
+    list_display = ('name', 'pilot', 'mech')
