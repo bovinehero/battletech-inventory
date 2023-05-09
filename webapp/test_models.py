@@ -1,8 +1,6 @@
 from django.test import TestCase
 from .models import Pilot, Mech, TECH, ROLE, CLASSIFICATION, WEIGHTS, STATUS
 
-# TODO write all test cases for the models.
-
 class TestModels(TestCase):
 
     def test_pilot_defaults(self):

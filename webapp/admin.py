@@ -12,10 +12,10 @@ class PilotAdmin(admin.ModelAdmin):
     actions = ['approve_pilot', 'revoke_pilot']
 
     def approve_pilot(self, request, queryset):
-        queryset.update(status=True)
+        queryset.update(status=1)
     
     def revoke_pilot(self, request, queryset):
-        queryset.update(status=False)
+        queryset.update(status=0)
 
 @admin.register(Mech)
 class MechAdmin(admin.ModelAdmin):
