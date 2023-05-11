@@ -6,7 +6,7 @@
     <h1>This is Active Mechs List</h1>
     <div class="row">
 
-        <!-- Pilot Entries -->
+        <!-- TODO Work on this -->
         <div class="col-12 mt-3 left">
             <div class="row">
                 <table class="table">
@@ -19,12 +19,13 @@
                     </tr>
                   </thead>
                   <tbody>
-                  {% for mech in activemech_list %}
+                  {% for activemech in activemech_list %}
                     <tr>
-                      <th scope="row">{{ mech.pk }}</th>
-                      <td>{{ mech.name }}</td>
-                      <td>{{ mech.pilot }}</td>
-                      <td>{{ mech.mech }}</td>
+                      <th scope="row">{{ activemech.pk }}</th>
+                      <td>{{ activemech.name }}</td>
+                      <td>{{ activemech.pilot }}</td>
+                      <td>{{ activemech.mech }}</td>
+                      <td>{{ activemech.mech.role }}</td>
                     </tr>
                   {% endfor %}
                   </tbody>

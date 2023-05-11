@@ -51,6 +51,6 @@ class ActiveMech(models.Model):
     name = models.CharField(max_length=50, unique=True)
     pilot = models.OneToOneField(Pilot, on_delete=models.CASCADE,
         primary_key=True, related_name="active_mech")
-    mech = models.OneToOneField(Mech, on_delete=models.CASCADE,
+    mech = models.ForeignKey(Mech, on_delete=models.CASCADE,
                                  related_name="active_pilot")
     status = models.IntegerField(choices=STATUS, default=0)
