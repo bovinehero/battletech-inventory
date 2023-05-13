@@ -26,7 +26,7 @@
                     {% for pilot in pilot_list %}
                       <tr>
                         <th scope="row">{{ pilot.pk }}</th>
-                        <td>{{ pilot.callsign }}</td>
+                        <td><a href="{% url 'pilot_detail' pilot.slug  %}">{{ pilot.callsign }}</a></td>
                         <td>{{ pilot.gunnery }}</td>
                         <td>{{ pilot.piloting }}</td>
                         <td>{{ pilot.experience }}</td>

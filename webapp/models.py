@@ -13,7 +13,7 @@ STATUS = ((0, "Not Available"), (1, "Available"))
 
 class Pilot(models.Model):
     """
-    A Pilot will have a 1 2 1 relationship with a mech
+    A Pilot will have a 1 2 1 relationship with a mech in Active Mech
     # TODO add User relationship
     """
     callsign = models.CharField(max_length=50, unique=True)
@@ -29,8 +29,7 @@ class Pilot(models.Model):
     
 class Mech(models.Model):
     """
-    A Pilot will have a 1 2 1 relationship with a mech
-    # TODO maybe decouple this and have Game Mech as OneToOnes of Mech and Pilot relationships?
+    A Pilot will have a 1 2 1 relationship with a mech in Active Mech
     """
     name = models.CharField(max_length=50, unique=True)
     category = models.IntegerField(choices=CLASSIFICATION, default=0)

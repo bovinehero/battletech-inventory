@@ -9,6 +9,8 @@ from django.urls import path
 urlpatterns = [
     path('', views.ActiveMechList.as_view(), name='home'),
     path('pilots/', views.PilotList.as_view(), name='pilots'),
-    path('mechs/', views.MechList.as_view(), name='mechs')
-    
+    path('pilots/<slug:slug>', views.PilotDetail.as_view(), name='pilot_detail'),
+    path('mechs/', views.MechList.as_view(), name='mechs'),
+    path('mechs/<slug:slug>', views.MechDetail.as_view(), name='mech_detail')
+
 ]

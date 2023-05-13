@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="container-fluid">
-    <h1>This is Inventory Mechs List</h1>
+    <h1>All Mechs In Inventroy</h1>
     <div class="row">
 
         <!-- Pilot Entries -->
@@ -13,15 +13,13 @@
                     <thead>
                       <tr>
                         <th scope="col">#</th>
-                        <th scope="col">pilot</th>
-                        <th scope="col">name</th>
-                        <th scope="col">category</th>
-                        <th scope="col">weight</th>
-                        <th scope="col">tech_level</th>
-                        <th scope="col">role</th>
-                        <th scope="col">slug</th>
-                        <th scope="col">record_sheet</th>
-                        <th scope="col">battle_value</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Weight</th>
+                        <th scope="col">Tech Level</th>
+                        <th scope="col">Role</th>
+                        <th scope="col">Record Sheet</th>
+                        <th scope="col">Base BV</th>
                         <th scope="col">status</th>                     
                       </tr>
                     </thead>
@@ -29,14 +27,13 @@
                     {% for mech in mech_list %}
                       <tr>
                         <th scope="row">{{ mech.pk }}</th>
-                        <td>{{ mech.pilot }}</td>
-                        <td>{{ mech.name }}</td>
+                        <td><a href="{% url 'mech_detail' mech.slug  %}">{{ mech.name }}</a></td>
                         <td>{{ mech.get_category_display }}</td>
                         <td>{{ mech.get_weight_display }}</td>
                         <td>{{ mech.get_tech_level_display }}</td>
                         <td>{{ mech.get_role_display }}</td>
-                        <td>{{ mech.slug }}</td>
-                        <td><a href="{{ mech.record_sheet }}" target="_blank"><button class="btn">Go to PDF <i class="fa fa-download"></i></button></a>
+                        <td>
+                          <a href="{{ mech.record_sheet }}" target="_blank"><button class="btn">Go to PDF <i class="fa fa-download"></i></button></a>
                         </td>
                         <td>{{ mech.battle_value }}</td>
                         <td>{{ mech.get_status_display }}</td>
