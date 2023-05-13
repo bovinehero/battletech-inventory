@@ -36,19 +36,6 @@ class MechDetail(generic.ListView):
             },
         )
 
-class MechDetail(generic.ListView):
-    
-    def get(self, request, slug, *args, **kwargs):
-        queryset = Mech.objects.filter(status=1)
-        mech = get_object_or_404(queryset, slug=slug)
-        return render(
-            request,
-            "mech_detail.html",
-            {
-                "mech": mech
-            },
-        )
-
 class PilotDetail(View):
 
     def bv_modifier(self, gun_skill, pilot_skill):
@@ -69,7 +56,6 @@ class PilotDetail(View):
         queryset = Pilot.objects.filter(status=1)
         pilot = get_object_or_404(queryset, slug=slug)
         bv_mod = self.bv_modifier(pilot.gunnery, pilot.piloting)
-        print(bv_mod, 000)
         return render(
             request,
             "pilot_detail.html",
