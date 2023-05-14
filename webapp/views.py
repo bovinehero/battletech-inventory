@@ -64,3 +64,16 @@ class PilotDetail(View):
                 "bv_mod": bv_mod
             },
         )
+
+class ActiveMechDetail(generic.ListView):
+    
+    def get(self, request, slug, *args, **kwargs):
+        queryset = ActiveMech.objects.filter(status=1)
+        active_mech = get_object_or_404(queryset, slug=slug)
+        return render(
+            request,
+            "active_mech_detail.html",
+            {
+                "mech": active_mech
+            },
+        )

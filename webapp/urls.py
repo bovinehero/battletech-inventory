@@ -11,6 +11,6 @@ urlpatterns = [
     path('pilots/', views.PilotList.as_view(), name='pilots'),
     path('pilots/<slug:slug>', views.PilotDetail.as_view(), name='pilot_detail'),
     path('mechs/', views.MechList.as_view(), name='mechs'),
-    path('mechs/<slug:slug>', views.MechDetail.as_view(), name='mech_detail')
-
+    path('mechs/<slug:slug>', views.MechDetail.as_view(), name='mech_detail'),
+    path('<slug:slug>', views.ActiveMechDetail.as_view(), name='active_mech_detail')
 ]

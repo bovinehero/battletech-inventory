@@ -53,3 +53,4 @@ class ActiveMech(models.Model):
     mech = models.ForeignKey(Mech, on_delete=models.CASCADE,
                                  related_name="active_pilot")
     status = models.IntegerField(choices=STATUS, default=0)
+    slug = models.SlugField(max_length=200, unique=True)

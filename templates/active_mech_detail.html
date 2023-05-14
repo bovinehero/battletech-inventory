@@ -1,0 +1,38 @@
+{% extends 'base.html' %} {% block content %}
+
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-4 mt-3 left">
+            <h2>Mech Data</h2>
+            <p>Name: {{ mech.name }}</p>
+            <p>Category: {{ mech.get_category_display }}</p>
+            <p>Weight: {{ mech.get_weight_display }}</p>
+            <p>Tech Level: {{ mech.get_tech_level_display }}</p>
+            <p>Role: {{ mech.get_role_display }}</p>
+            <p>Slug: {{ mech.slug }}</p>
+            <p>Stock: {{ mech.stock }}</p>
+            <p>Description: {{ mech.description }}</p>
+            <p>Record Sheet: {{ mech.record_sheet }}</p>
+            <p>BV: {{ mech.battle_value }}</p>
+            <p>Status: {{ mech.get_status_display }}</p>
+        </div>
+        <div class="col-4 mt-3 left">
+            <h2>Pilot Data</h2>
+            <p>{{ pilot.callsign }}</p>
+            <p>Gunnery: {{ pilot.gunnery }}</p>
+            <p>Piloting: {{ pilot.piloting }}</p>
+            <p>Experience: {{ pilot.experience }}</p>
+            <p>Status: {{ pilot.get_status_display }}</p>
+            <p>BV Modifier: {{ bv_mod }}</p>
+        </div>
+        <div class="col-4 mt-3 left">
+
+        </div>
+    </div>
+
+
+</div>
+
+{% endblock content %}
