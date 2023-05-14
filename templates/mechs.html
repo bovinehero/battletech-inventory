@@ -5,8 +5,15 @@
 <div class="container-fluid">
     <h1>All Mechs In Inventroy</h1>
     <div class="row">
+      <h2>Add a Mech</h2>
+      <form method="POST" action="add">
+        {% csrf_token %}
+        {{ form }}
+      </form>
+    </div>
+    <div class="row">
 
-        <!-- Pilot Entries -->
+        <!-- Mech Entries -->
         <div class="col-12 mt-3 left">
             <div class="row">
                 <table class="table">

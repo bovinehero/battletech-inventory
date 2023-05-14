@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <h1>All Mechs In Inventroy</h1>
+    <div class="row">
+      <h2>Mech Form</h2>
+      <form method="POST" action="add">
+        {% csrf_token %}
+        {{ form }}
+      </form>
+    </div>
+</div>
+{%endblock%}
