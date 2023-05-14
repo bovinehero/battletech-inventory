@@ -13,18 +13,30 @@
                   <thead>
                     <tr>
                       <th scope="col">#</th>
-                      <th scope="col">name</th>
-                      <th scope="col">pilot</th>
-                      <th scope="col">mech</th>                     
+                      <th scope="col">Name</th>
+                      <th scope="col">Pilot</th>
+                      <th scope="col">Mech</th>
+                      <th scope="col">Tech Level</th>
                     </tr>
                   </thead>
                   <tbody>
                   {% for activemech in activemech_list %}
                     <tr>
                       <th scope="row">{{ activemech.pk }}</th>
-                      <td>{{ activemech.name }}</td>
-                      <td>{{ activemech.pilot }}</td>
-                      <td>{{ activemech.mech }}</td>
+                      <td>
+                        <a href="{% url 'active_mech_detail' activemech.slug  %}">{{ activemech.name }}</a>
+                      </td>
+                      <td>
+                        <a href="{% url 'pilot_detail' activemech.pilot.slug  %}">{{ activemech.pilot.callsign }}</a>
+                        {{ activemech.pilot.gunnery }} /
+                        {{ activemech.pilot.piloting }}
+                      </td>
+                      <td>
+                        <a href="{% url 'mech_detail' activemech.mech.slug  %}">{{ activemech.mech}}</a>
+                      </td>
+                      <td>
+                        {{ activemech.mech.get_tech_level_display }}
+                      </td>
                     </tr>
                   {% endfor %}
                   </tbody>

@@ -44,3 +44,6 @@ class MechAdmin(admin.ModelAdmin):
 @admin.register(ActiveMech)
 class ActiveMechAdmin(admin.ModelAdmin):
     list_display = ('name', 'pilot', 'mech')
+    prepopulated_fields = {
+        'slug': ('name',)
+    }

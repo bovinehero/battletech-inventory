@@ -70,10 +70,12 @@ class ActiveMechDetail(generic.ListView):
     def get(self, request, slug, *args, **kwargs):
         queryset = ActiveMech.objects.filter(status=1)
         active_mech = get_object_or_404(queryset, slug=slug)
+        bv_mod = PilotDetail.bv_modifier(self, active_mech.pilot.gunnery, active_mech.pilot.piloting)
         return render(
             request,
             "active_mech_detail.html",
             {
-                "mech": active_mech
+                "active_mech": active_mech,
+                "bv_mod": bv_mod
             },
         )

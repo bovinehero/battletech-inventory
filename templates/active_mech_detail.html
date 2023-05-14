@@ -6,25 +6,25 @@
     <div class="row">
         <div class="col-4 mt-3 left">
             <h2>Mech Data</h2>
-            <p>Name: {{ mech.name }}</p>
-            <p>Category: {{ mech.get_category_display }}</p>
-            <p>Weight: {{ mech.get_weight_display }}</p>
-            <p>Tech Level: {{ mech.get_tech_level_display }}</p>
-            <p>Role: {{ mech.get_role_display }}</p>
-            <p>Slug: {{ mech.slug }}</p>
-            <p>Stock: {{ mech.stock }}</p>
-            <p>Description: {{ mech.description }}</p>
-            <p>Record Sheet: {{ mech.record_sheet }}</p>
-            <p>BV: {{ mech.battle_value }}</p>
-            <p>Status: {{ mech.get_status_display }}</p>
+            <p>Name: {{ active_mech.mech.name }}</p>
+            <p>Category: {{ active_mech.mech.get_category_display }}</p>
+            <p>Weight: {{ active_mech.mech.get_weight_display }}</p>
+            <p>Tech Level: {{ active_mech.mech.get_tech_level_display }}</p>
+            <p>Role: {{ active_mech.mech.get_role_display }}</p>
+            <p>Slug: {{ active_mech.mech.slug }}</p>
+            <p>Stock: {{ active_mech.mech.stock }}</p>
+            <p>Description: {{ active_mech.mech.description }}</p>
+            <p>Record Sheet: {{ active_mech.mech.record_sheet }}</p>
+            <p>BV: {{ active_mech.mech.battle_value }}</p>
+            <p>Status: {{ active_mech.mech.get_status_display }}</p>
         </div>
         <div class="col-4 mt-3 left">
             <h2>Pilot Data</h2>
-            <p>{{ pilot.callsign }}</p>
-            <p>Gunnery: {{ pilot.gunnery }}</p>
-            <p>Piloting: {{ pilot.piloting }}</p>
-            <p>Experience: {{ pilot.experience }}</p>
-            <p>Status: {{ pilot.get_status_display }}</p>
+            <p>{{ active_mech.pilot.callsign }}</p>
+            <p>Gunnery: {{ active_mech.pilot.gunnery }}</p>
+            <p>Piloting: {{ active_mech.pilot.piloting }}</p>
+            <p>Experience: {{ active_mech.pilot.experience }}</p>
+            <p>Status: {{ active_mech.pilot.get_status_display }}</p>
             <p>BV Modifier: {{ bv_mod }}</p>
         </div>
         <div class="col-4 mt-3 left">
