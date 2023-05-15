@@ -5,7 +5,7 @@ from django.views.generic.edit import CreateView, DeleteView, UpdateView, FormMi
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 from .models import Pilot, Mech, ActiveMech
-from .forms import CreateMechForm
+from .forms import CreateMechForm, CreatePilotForm
 import numpy
 
 class PilotList(generic.ListView):
@@ -89,6 +89,12 @@ class CreateMechView(generic.CreateView):
     template_name = 'mechs_form.html'    
     success_url = reverse_lazy('mechs')
 
+class CreatePilotView(generic.CreateView):
+    model = Pilot
+    form_class = CreatePilotForm
+    template_name = 'mechs_form.html'    
+    success_url = reverse_lazy('pilots')
+
 class UpdateMechView(UpdateView):
     model = Mech
     fields = [
@@ -106,9 +112,43 @@ class UpdateMechView(UpdateView):
         ]
     template_name = 'mechs_form.html'
 
+class UpdatePilotView(UpdateView):
+    model = Pilot
+    fields = [
+            'name',
+            'category',
+            'weight',
+            'tech_level',
+            'role',
+            'slug',
+            'stock',
+            'description',
+            'record_sheet',
+            'battle_value',
+            'status'
+        ]
+    template_name = 'mechs_form.html'
 
 class DeleteMechView(DeleteView):
     model = Mech
+    fields = [
+            'name',
+            'category',
+            'weight',
+            'tech_level',
+            'role',
+            'slug',
+            'stock',
+            'description',
+            'record_sheet',
+            'battle_value',
+            'status'
+        ]
+    template_name = 'mechs_form.html'    
+    success_url = reverse_lazy("mechs")
+
+class DeletePilotView(DeleteView):
+    model = Pilot
     fields = [
             'name',
             'category',
