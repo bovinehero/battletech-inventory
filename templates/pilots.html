@@ -31,8 +31,8 @@
                         <td>{{ pilot.piloting }}</td>
                         <td>{{ pilot.experience }}</td>
                         <td>{{ pilot.edge }}</td>
-                        <td>{{ pilot.slug }}</td>
-                        <td>{{ pilot.status }}</td>
+                        <td>{{ pilot.slug }} <a href="{%url 'pilot_delete' pilot.slug %}"> Delete</a></td>
+                        <td>{{ pilot.status }} </td>
                       </tr>
                     {% endfor %}
                     </tbody>

@@ -43,7 +43,7 @@
                           <a href="{{ mech.record_sheet }}" target="_blank"><button class="btn">Go to PDF <i class="fa fa-download"></i></button></a>
                         </td>
                         <td>{{ mech.battle_value }}</td>
-                        <td>{{ mech.get_status_display }}</td>
+                        <td>{{ mech.get_status_display }} <a href="{%url 'mech_delete' mech.slug %}"> Delete</a></td>
                       </tr>
                     {% endfor %}
                     </tbody>

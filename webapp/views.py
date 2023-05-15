@@ -4,6 +4,7 @@ from django.views import generic, View
 from django.views.generic.edit import CreateView, DeleteView, UpdateView, FormMixin
 from django.http import HttpResponseRedirect
 from django.contrib import messages
+from django.utils.text import slugify
 from .models import Pilot, Mech, ActiveMech
 from .forms import CreateMechForm, CreatePilotForm
 import numpy
@@ -131,36 +132,20 @@ class UpdatePilotView(UpdateView):
 
 class DeleteMechView(DeleteView):
     model = Mech
-    fields = [
-            'name',
-            'category',
-            'weight',
-            'tech_level',
-            'role',
-            'slug',
-            'stock',
-            'description',
-            'record_sheet',
-            'battle_value',
-            'status'
-        ]
-    template_name = 'mechs_form.html'    
-    success_url = reverse_lazy("mechs")
+    context_object_name = 'mech'
+    success_url = reverse_lazy('mechs')
+    template_name = 'mech_delete.html'
+    
+    def form_valid(self, form):
+        messages.success(self.request, "The Mech was deleted successfully.")
+        return super(DeletePilotView,self).form_valid(form)
 
 class DeletePilotView(DeleteView):
     model = Pilot
-    fields = [
-            'name',
-            'category',
-            'weight',
-            'tech_level',
-            'role',
-            'slug',
-            'stock',
-            'description',
-            'record_sheet',
-            'battle_value',
-            'status'
-        ]
-    template_name = 'mechs_form.html'    
-    success_url = reverse_lazy("mechs")
+    context_object_name = 'pilot'
+    success_url = reverse_lazy('pilots')
+    template_name = 'pilot_delete.html'
+    
+    def form_valid(self, form):
+        messages.success(self.request, "The Pilot was deleted successfully.")
+        return super(DeletePilotView,self).form_valid(form)

@@ -1,5 +1,6 @@
 from django.db import models
 from django.shortcuts import reverse
+import itertools
 
 # Create your models here.
 
@@ -27,7 +28,6 @@ class Pilot(models.Model):
 
     def __str__(self):
         return self.callsign
-    
     
 class Mech(models.Model):
     """
