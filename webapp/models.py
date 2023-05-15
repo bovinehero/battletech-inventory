@@ -1,4 +1,5 @@
 from django.db import models
+from django.shortcuts import reverse
 
 # Create your models here.
 
@@ -27,6 +28,7 @@ class Pilot(models.Model):
     def __str__(self):
         return self.callsign
     
+    
 class Mech(models.Model):
     """
     A Pilot will have a 1 2 1 relationship with a mech in Active Mech
@@ -45,6 +47,7 @@ class Mech(models.Model):
 
     def __str__(self):
         return self.name
+    
     
 class ActiveMech(models.Model):
     name = models.CharField(max_length=50, unique=True)

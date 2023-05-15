@@ -1,7 +1,7 @@
 from django import forms
 from .models import Mech
 
-class MechForm(forms.ModelForm):
+class CreateMechForm(forms.ModelForm):
     
     class Meta:
         model = Mech
@@ -18,3 +18,4 @@ class MechForm(forms.ModelForm):
             'battle_value',
             'status'
         ]
+        

@@ -11,12 +11,12 @@
             <div class="row">
                 <table class="table">
                   <thead>
-                    <tr>
+                    <tr>mech_create
                       <th scope="col">#</th>
                       <th scope="col">Name</th>
-                      <th scope="col">Pilot</th>
-                      <th scope="col">Mech</th>
-                      <th scope="col">Tech Level</th>
+                      <th scope="col">Pilot <a href="/pilots/add/"><i class="fa fa-plus-circle"></i></a></th>
+                      <th scope="col">Mech <a href="/mechs/add/"><i class="fa fa-plus-circle"></i></a></th>
+                      <th scope="col">Tech Level <a href="{% url 'mech_create' %}"><i class="fa fa-plus-circle"></i></a></th>
                     </tr>
                   </thead>
                   <tbody>
@@ -32,7 +32,7 @@
                         {{ activemech.pilot.piloting }}
                       </td>
                       <td>
-                        <a href="{% url 'mech_detail' activemech.mech.slug  %}">{{ activemech.mech}}</a>
+                        <a href="{% url 'mech_detail' activemech.mech.slug  %}">{{ activemech.mech}}</a> 
                       </td>
                       <td>
                         {{ activemech.mech.get_tech_level_display }}

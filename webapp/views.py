@@ -1,11 +1,11 @@
-from django.shortcuts import HttpResponse, render, get_object_or_404, reverse
+from django.shortcuts import HttpResponse, render, get_object_or_404, reverse, redirect
 from django.urls import reverse_lazy
 from django.views import generic, View
-from django.views.generic.edit import CreateView, DeleteView, UpdateView
+from django.views.generic.edit import CreateView, DeleteView, UpdateView, FormMixin
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 from .models import Pilot, Mech, ActiveMech
-from .forms import MechForm
+from .forms import CreateMechForm
 import numpy
 
 class PilotList(generic.ListView):
@@ -83,23 +83,11 @@ class ActiveMechDetail(generic.ListView):
             },
         )
     
-class CreateMechView(CreateView):
-
+class CreateMechView(generic.CreateView):
     model = Mech
-    fields = [
-            'name',
-            'category',
-            'weight',
-            'tech_level',
-            'role',
-            'slug',
-            'stock',
-            'description',
-            'record_sheet',
-            'battle_value',
-            'status'
-        ]
-    template_name = 'mechs_form.html'
+    form_class = CreateMechForm
+    template_name = 'mechs_form.html'    
+    success_url = reverse_lazy('mechs')
 
 class UpdateMechView(UpdateView):
     model = Mech
