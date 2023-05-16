@@ -26,13 +26,13 @@
                     {% for pilot in pilot_list %}
                       <tr>
                         <th scope="row">{{ pilot.pk }}</th>
-                        <td><a href="{% url 'pilot_detail' pilot.slug  %}">{{ pilot.callsign }}</a></td>
+                        <td><a href="{% url 'pilot_detail' pilot.slug  %}">{{ pilot.callsign }}</a> <a href="{%url 'pilot_update' pilot.slug %}"> Edit</a></td>
                         <td>{{ pilot.gunnery }}</td>
                         <td>{{ pilot.piloting }}</td>
                         <td>{{ pilot.experience }}</td>
                         <td>{{ pilot.edge }}</td>
                         <td>{{ pilot.slug }} <a href="{%url 'pilot_delete' pilot.slug %}"> Delete</a></td>
-                        <td>{{ pilot.status }} </td>
+                        <td>{{ pilot.get_status_display }} </td>
                       </tr>
                     {% endfor %}
                     </tbody>

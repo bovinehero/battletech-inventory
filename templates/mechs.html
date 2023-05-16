@@ -34,7 +34,7 @@
                     {% for mech in mech_list %}
                       <tr>
                         <th scope="row">{{ mech.pk }}</th>
-                        <td><a href="{% url 'mech_detail' mech.slug  %}">{{ mech.name }}</a></td>
+                        <td><a href="{% url 'mech_detail' mech.slug  %}">{{ mech.name }}</a> <a href="{%url 'mech_update' mech.slug %}"> Edit</a></td>
                         <td>{{ mech.get_category_display }}</td>
                         <td>{{ mech.get_weight_display }}</td>
                         <td>{{ mech.get_tech_level_display }}</td>

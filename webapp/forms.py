@@ -19,6 +19,24 @@ class CreateMechForm(forms.ModelForm):
             'status'
         ]
 
+class UpdateMechForm(forms.ModelForm):
+    
+    class Meta:
+        model = Mech
+        fields = [
+            'name',
+            'category',
+            'weight',
+            'tech_level',
+            'role',
+            'slug',
+            'stock',
+            'description',
+            'record_sheet',
+            'battle_value',
+            'status'
+        ]
+
 class CreatePilotForm(forms.ModelForm):
     
     class Meta:
@@ -32,4 +50,17 @@ class CreatePilotForm(forms.ModelForm):
             'slug',
             'status'
         ]
-        
+
+class UpdatePilotForm(forms.ModelForm):
+    
+    class Meta:
+        model = Pilot
+        fields = [
+            'callsign',
+            'gunnery',
+            'piloting',
+            'experience',
+            'edge',
+            'slug',
+            'status'
+        ]

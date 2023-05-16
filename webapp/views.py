@@ -6,7 +6,7 @@ from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.utils.text import slugify
 from .models import Pilot, Mech, ActiveMech
-from .forms import CreateMechForm, CreatePilotForm
+from .forms import CreateMechForm, CreatePilotForm, UpdateMechForm, UpdatePilotForm
 import numpy
 
 class PilotList(generic.ListView):
@@ -98,37 +98,15 @@ class CreatePilotView(generic.CreateView):
 
 class UpdateMechView(UpdateView):
     model = Mech
-    fields = [
-            'name',
-            'category',
-            'weight',
-            'tech_level',
-            'role',
-            'slug',
-            'stock',
-            'description',
-            'record_sheet',
-            'battle_value',
-            'status'
-        ]
-    template_name = 'mechs_form.html'
+    form_class = UpdateMechForm
+    template_name = 'mechs_form.html'    
+    success_url = reverse_lazy('mechs')
 
 class UpdatePilotView(UpdateView):
     model = Pilot
-    fields = [
-            'name',
-            'category',
-            'weight',
-            'tech_level',
-            'role',
-            'slug',
-            'stock',
-            'description',
-            'record_sheet',
-            'battle_value',
-            'status'
-        ]
-    template_name = 'mechs_form.html'
+    form_class = UpdatePilotForm
+    template_name = 'mechs_form.html'    
+    success_url = reverse_lazy('mechs')
 
 class DeleteMechView(DeleteView):
     model = Mech
