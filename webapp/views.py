@@ -90,11 +90,19 @@ class CreateMechView(generic.CreateView):
     template_name = 'mechs_form.html'    
     success_url = reverse_lazy('mechs')
 
+    def form_valid(self, form):
+        messages.success(self.request, "The Mech was successfully created.")
+        return super(DeletePilotView,self).form_valid(form)
+
 class CreatePilotView(generic.CreateView):
     model = Pilot
     form_class = CreatePilotForm
     template_name = 'mechs_form.html'    
     success_url = reverse_lazy('pilots')
+
+    def form_valid(self, form):
+        messages.success(self.request, "The Pilot was successfully created.")
+        return super(DeletePilotView,self).form_valid(form)
 
 class UpdateMechView(UpdateView):
     model = Mech
@@ -102,11 +110,20 @@ class UpdateMechView(UpdateView):
     template_name = 'mechs_form.html'    
     success_url = reverse_lazy('mechs')
 
+    def form_valid(self, form):
+        messages.success(self.request, "The Mech was successfully updated.")
+        return super(DeletePilotView,self).form_valid(form)
+
+
 class UpdatePilotView(UpdateView):
     model = Pilot
     form_class = UpdatePilotForm
     template_name = 'mechs_form.html'    
     success_url = reverse_lazy('mechs')
+
+    def form_valid(self, form):
+        messages.success(self.request, "The Pilot was successfully updated.")
+        return super(DeletePilotView,self).form_valid(form)
 
 class DeleteMechView(DeleteView):
     model = Mech
