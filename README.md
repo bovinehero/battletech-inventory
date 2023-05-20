@@ -114,3 +114,8 @@ Paste the result in your __env.py__ file like so:
 ``` py
 os.environ["SECRET_KEY"] = 'django-example-^)3iq0)e@#$25%$e_8l_e5(rj&szl=f(jq^m628yx+k2_lcp27'
 ```
+
+
+## Credits
+
+https://icomoon.io/app/#/select/font for custom font glyphs

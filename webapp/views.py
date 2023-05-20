@@ -92,7 +92,7 @@ class CreateMechView(generic.CreateView):
 
     def form_valid(self, form):
         messages.success(self.request, "The Mech was successfully created.")
-        return super(DeletePilotView,self).form_valid(form)
+        return super(CreateMechView,self).form_valid(form)
 
 class CreatePilotView(generic.CreateView):
     model = Pilot
@@ -102,7 +102,7 @@ class CreatePilotView(generic.CreateView):
 
     def form_valid(self, form):
         messages.success(self.request, "The Pilot was successfully created.")
-        return super(DeletePilotView,self).form_valid(form)
+        return super(CreatePilotView,self).form_valid(form)
 
 class UpdateMechView(UpdateView):
     model = Mech
@@ -112,7 +112,7 @@ class UpdateMechView(UpdateView):
 
     def form_valid(self, form):
         messages.success(self.request, "The Mech was successfully updated.")
-        return super(DeletePilotView,self).form_valid(form)
+        return super(UpdateMechView,self).form_valid(form)
 
 
 class UpdatePilotView(UpdateView):
@@ -123,7 +123,7 @@ class UpdatePilotView(UpdateView):
 
     def form_valid(self, form):
         messages.success(self.request, "The Pilot was successfully updated.")
-        return super(DeletePilotView,self).form_valid(form)
+        return super(UpdatePilotView,self).form_valid(form)
 
 class DeleteMechView(DeleteView):
     model = Mech
@@ -133,7 +133,7 @@ class DeleteMechView(DeleteView):
     
     def form_valid(self, form):
         messages.success(self.request, "The Mech was deleted successfully.")
-        return super(DeletePilotView,self).form_valid(form)
+        return super(DeleteMechView,self).form_valid(form)
 
 class DeletePilotView(DeleteView):
     model = Pilot

@@ -37,7 +37,15 @@
                         <td><a href="{% url 'mech_detail' mech.slug  %}">{{ mech.name }}</a> <a href="{%url 'mech_update' mech.slug %}"> Edit</a></td>
                         <td>{{ mech.get_category_display }}</td>
                         <td>{{ mech.get_weight_display }}</td>
-                        <td>{{ mech.get_tech_level_display }}</td>
+                        <td>
+                          {% if mech.get_tech_level_display == "Inner Sphere" %}
+                            <span class="icon-inner-sphere"></span>
+                          {% elif mech.get_tech_level_display == "Clan" %}
+                            <span class="icon-clan"></span> 
+                          {% else %}
+                            <span class="icon-mixed"></span>
+                          {% endif %} {{ mech.get_tech_level_display }}
+                        </td>
                         <td>{{ mech.get_role_display }}</td>
                         <td>
                           <a href="{{ mech.record_sheet }}" target="_blank"><button class="btn">Go to PDF <i class="fa fa-download"></i></button></a>

@@ -5,21 +5,18 @@
 <div class="container-fluid">
     <h1>This is Active Mechs List</h1>
     <div class="row">
-
+      <ul>
+        <li><span class="icon-mixed"></span>: Protype / Mixed Tech</li>
+        <li><span class="icon-clan"></span>: Clan Tech</li>
+        <li><span class="icon-inner-sphere"></span>: Successor State Tech</li>
+      </ul>
         <!-- TODO Work on this -->
-        <div class="col-12 mt-3 left">
+        <div class="col-12">
             <div class="row">
-              <p>
-                !    33    House Davion
-                @    64    House Kurita
-                #    35    House Steiner
-                $    36    House Liao
-                %    37    House Marik
-              </p>
-                <table class="table">
+                <table class="table table-responsive-sm">
                   <thead>
-                    <tr>mech_create
-                      <th scope="col">#</th>
+                    <tr>
+                      <!-- <th scope="col">#</th> -->
                       <th scope="col">Name</th>
                       <th scope="col">Pilot <a href="{% url 'pilot_create' %}"><i class="fa fa-plus-circle"></i></a></th>
                       <th scope="col">Mech <a href="{% url 'mech_create' %}"><i class="fa fa-plus-circle"></i></a></th>
@@ -29,7 +26,7 @@
                   <tbody>
                   {% for activemech in activemech_list %}
                     <tr>
-                      <th scope="row">{{ activemech.pk }}</th>
+                      <!-- <th scope="row">{{ activemech.pk }}</th> -->
                       <td>
                         <a href="{% url 'active_mech_detail' activemech.slug  %}">{{ activemech.name }}</a>
                       </td>
@@ -42,7 +39,13 @@
                         <a href="{% url 'mech_detail' activemech.mech.slug  %}">{{ activemech.mech}}</a> 
                       </td>
                       <td>
-                        {{ activemech.mech.get_tech_level_display }}
+                        {% if activemech.mech.get_tech_level_display == "Inner Sphere" %}
+                          <span class="icon-inner-sphere"></span>
+                        {% elif activemech.mech.get_tech_level_display == "Clan" %}
+                          <span class="icon-clan"></span>
+                        {% else %}
+                          <span class="icon-mixed"></span>
+                        {% endif %}
                       </td>
                     </tr>
                   {% endfor %}
@@ -56,5 +59,6 @@
        pagination logic here
     </nav>
     {% endif %}
+
 </div>
 {%endblock%}
