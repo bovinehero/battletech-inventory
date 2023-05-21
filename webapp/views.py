@@ -144,3 +144,12 @@ class DeletePilotView(DeleteView):
     def form_valid(self, form):
         messages.success(self.request, "The Pilot was deleted successfully.")
         return super(DeletePilotView,self).form_valid(form)
+    
+def toggle_mech_status(request, slug):
+    mech = get_object_or_404(Mech, slug=slug)
+    if mech.status == 0:
+        mech.status = 1
+    else:
+        mech.status = 0
+    mech.save()
+    return redirect('mechs')

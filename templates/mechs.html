@@ -48,12 +48,13 @@
                           </div>
                         </td>
                         <td>
-
-                          {% if mech.get_status_display == "Available" %}
-                            <i class="fa fa-toggle-on"></i>
-                          {% else %}
-                            <i class="fa fa-toggle-off"></i>
-                          {% endif %}
+                          <a href="{% url 'mech_toggle' mech.slug %}">
+                            {% if mech.get_status_display == "Available" %}
+                              <i class="fa fa-toggle-on"></i>
+                            {% else %}
+                              <i class="fa fa-toggle-off"></i>
+                            {% endif %}
+                          </a>
                         </td>
                       </tr>
                     {% endfor %}
