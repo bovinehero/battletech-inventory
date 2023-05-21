@@ -5,11 +5,7 @@
 <div class="container">
     <h1>All Mechs In Inventroy</h1>
     <div class="row">
-      <h2>Add a Mech</h2>
-      <form method="POST" action="add">
-        {% csrf_token %}
-        {{ form }}
-      </form>
+      <a href="{% url 'mech_create' %}"> Add a New Mech</a>
     </div>
     <div class="row">
 
@@ -19,39 +15,46 @@
                 <table class="table">
                     <thead>
                       <tr>
-                        <th scope="col">#</th>
                         <th scope="col">Name</th>
-                        <th scope="col">Category</th>
-                        <th scope="col">Weight</th>
-                        <th scope="col">Tech Level</th>
-                        <th scope="col">Role</th>
-                        <th scope="col">Record Sheet</th>
-                        <th scope="col">Base BV</th>
-                        <th scope="col">status</th>                     
+                        <th scope="col">Actions</th>
+                        <th scope="col">Available</th>
                       </tr>
                     </thead>
                     <tbody>
                     {% for mech in mech_list %}
                       <tr>
-                        <th scope="row">{{ mech.pk }}</th>
-                        <td><a href="{% url 'mech_detail' mech.slug  %}">{{ mech.name }}</a> <a href="{%url 'mech_update' mech.slug %}"> Edit</a></td>
-                        <td>{{ mech.get_category_display }}</td>
-                        <td>{{ mech.get_weight_display }}</td>
                         <td>
-                          {% if mech.get_tech_level_display == "Inner Sphere" %}
-                            <span class="icon-inner-sphere"></span>
-                          {% elif mech.get_tech_level_display == "Clan" %}
-                            <span class="icon-clan"></span> 
+                          <a href="{% url 'mech_detail' mech.slug  %}">{{ mech.name }}</a>
+                        </td>
+                        <td>
+                          <div class="dropdown show">                 
+                            <button class="btn btn-secondary dropdown-toggle btn-block" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <i class="fa fa-cogs"></i> Menu</a>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                              <a class="dropdown-item" href="{% url 'mech_detail' mech.slug %}">
+                                {% if mech.get_tech_level_display == "Inner Sphere" %}
+                                  <span class="icon-inner-sphere"></span>
+                                {% elif mech.get_tech_level_display == "Clan" %}
+                                  <span class="icon-clan"></span> 
+                                {% else %}
+                                  <span class="icon-mixed"></span>
+                                {% endif %} View Mech
+                              </a>
+                              <a class="dropdown-item" href="{{ baseUrl }}/readouts/{{ mech.record_sheet }}.pdf" download><i class="fa fa-download"></i> Download</a>
+                              <a class="dropdown-item" href="{% url 'mech_update' mech.slug %}"><i class="fa fa-edit"></i> Edit</a>
+                              <a class="dropdown-item" href="{% url 'mech_delete' mech.slug %}"><i class="fa fa-trash"></i> Delete</a>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+
+                          {% if mech.get_status_display == "Available" %}
+                            <i class="fa fa-toggle-on"></i>
                           {% else %}
-                            <span class="icon-mixed"></span>
-                          {% endif %} {{ mech.get_tech_level_display }}
+                            <i class="fa fa-toggle-off"></i>
+                          {% endif %}
                         </td>
-                        <td>{{ mech.get_role_display }}</td>
-                        <td>
-                          <a href="{{ baseUrl }}/readouts/{{ mech.record_sheet }}.pdf" download><button class="btn">Download <i class="fa fa-download"></i></button></a>
-                        </td>
-                        <td>{{ mech.battle_value }}</td>
-                        <td>{{ mech.get_status_display }} <a href="{%url 'mech_delete' mech.slug %}"> Delete</a></td>
                       </tr>
                     {% endfor %}
                     </tbody>
@@ -65,4 +68,5 @@
     </nav>
     {% endif %}
 </div>
+
 {%endblock%}
