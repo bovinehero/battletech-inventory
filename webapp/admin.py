@@ -25,7 +25,6 @@ class MechAdmin(admin.ModelAdmin):
         'weight',
         'tech_level',
         'role',
-        'stock',
         'record_sheet',
         'battle_value',
         'status'

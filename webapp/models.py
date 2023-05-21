@@ -39,9 +39,8 @@ class Mech(models.Model):
     tech_level = models.IntegerField(choices=TECH, default=0)
     role = models.IntegerField(choices=ROLE, default=0)
     slug = models.SlugField(max_length=200, unique=True)
-    stock = models.IntegerField(default=2)
     description = models.TextField(blank=True)
-    record_sheet = models.URLField()
+    record_sheet = models.CharField(max_length=50, default='custom')
     battle_value = models.IntegerField(default=9999)
     status = models.IntegerField(choices=STATUS, default=0)
 

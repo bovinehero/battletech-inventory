@@ -17,7 +17,7 @@ class PilotList(generic.ListView):
 
 class MechList(generic.ListView):
     model = Mech
-    queryset = Mech.objects.filter(status=1).order_by('pk')
+    queryset = Mech.objects.all().order_by('name')
     template_name = 'mechs.html'
     paginate_by = 10
 
