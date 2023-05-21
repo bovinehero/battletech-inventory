@@ -7,8 +7,22 @@
 
     <div class="row">
         <div class="col-12 left">
+            <div class="image-container text-center">
+                <img src="{{ baseUrl }}/images/mechs/{{ mech.slug }}-rg.png" alt="{{ mech.name }} Profile Picture" class="img-fluid img-thumbnail">
+            </div>
+        </div>
+        <div class="col-12 left">
             <h2>Mech Data</h2>
             <p>Name: {{ mech.name }}</p>
+            <p>
+            {% if mech.get_tech_level_display == "Inner Sphere" %}
+                <span class="icon-inner-sphere"></span>
+            {% elif mech.get_tech_level_display == "Clan" %}
+                <span class="icon-clan"></span>
+            {% else %}
+                <span class="icon-mixed"></span>
+            {% endif %}
+            </p>
             <p>Category: {{ mech.get_category_display }}</p>
             <p>Weight: {{ mech.get_weight_display }}</p>
             <p>Tech Level: {{ mech.get_tech_level_display }}</p>
