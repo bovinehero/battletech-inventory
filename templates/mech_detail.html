@@ -30,6 +30,7 @@
             <p>Slug: {{ mech.slug }}</p>
             <p>Description: {{ mech.description }}</p>
             <p>Record Sheet: {{ mech.record_sheet }}</p>
+            <p><a href="{{ baseUrl }}/readouts/{{ mech.record_sheet }}.pdf" download>Record Sheet</a></p>
             <p>BV: {{ mech.battle_value }}</p>
             <p>Status: {{ mech.get_status_display }}</p>
         </div>
