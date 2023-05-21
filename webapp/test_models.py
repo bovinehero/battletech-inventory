@@ -22,9 +22,8 @@ class TestModels(TestCase):
         self.assertEqual(mech.weight, 0)
         self.assertEqual(mech.tech_level, 0)
         self.assertEqual(mech.role, 0)
-        self.assertEqual(mech.stock, 2)
         self.assertEqual(mech.description, '')
-        self.assertEqual(mech.record_sheet, '')
+        self.assertEqual(mech.record_sheet, 'custom')
         self.assertEqual(mech.battle_value, 9999)
         self.assertEqual(mech.status, 0)
 

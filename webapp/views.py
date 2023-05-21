@@ -130,20 +130,20 @@ class DeleteMechView(DeleteView):
     context_object_name = 'mech'
     success_url = reverse_lazy('mechs')
     template_name = 'mech_delete.html'
-    
-    def form_valid(self, form):
-        messages.success(self.request, "The Mech was deleted successfully.")
-        return super(DeleteMechView,self).form_valid(form)
 
+    def delete(self, request, *args, **kwargs):
+        messages.success(self.request, "The Mech was successfully deleted.")
+        return super(DeleteMechView, self).delete(request, *args, **kwargs)
+    
 class DeletePilotView(DeleteView):
     model = Pilot
     context_object_name = 'pilot'
     success_url = reverse_lazy('pilots')
     template_name = 'pilot_delete.html'
-    
-    def form_valid(self, form):
-        messages.success(self.request, "The Pilot was deleted successfully.")
-        return super(DeletePilotView,self).form_valid(form)
+
+    def delete(self, request, *args, **kwargs):
+        messages.success(self.request, "The Pilot was successfully deleted.")
+        return super(DeletePilotView, self).delete(request, *args, **kwargs)
     
 def toggle_mech_status(request, slug):
     mech = get_object_or_404(Mech, slug=slug)
