@@ -1,10 +1,12 @@
 {% extends 'base.html' %} {% block content %}
 
+{% load static %}
+{% static "" as baseUrl %}
 
 <div class="container">
 
     <div class="row">
-        <div class="col-4 mt-3 left">
+        <div class="col-12 left">
             <h2>Mech Data</h2>
             <p>Name: {{ mech.name }}</p>
             <p>Category: {{ mech.get_category_display }}</p>
@@ -17,11 +19,10 @@
             <p>BV: {{ mech.battle_value }}</p>
             <p>Status: {{ mech.get_status_display }}</p>
         </div>
-        <div class="col-4 mt-3 left">
-            
-        </div>
-        <div class="col-4 mt-3 left">
-
+        <div class="col-12 left">
+            <div class="iframe-container">
+                <iframe class="responsive-iframe" src="{{ baseUrl }}/readouts/{{ mech.record_sheet }}.pdf#view=FitH"></iframe>
+            </div>
         </div>
     </div>
 
