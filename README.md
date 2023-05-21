@@ -119,3 +119,5 @@ os.environ["SECRET_KEY"] = 'django-example-^)3iq0)e@#$25%$e_8l_e5(rj&szl=f(jq^m6
 ## Credits
 
 https://icomoon.io/app/#/select/font for custom font glyphs
+
+https://coolors.co/ffdb58-201b1f-857a71-665e57-4f484b-231d23 for colours

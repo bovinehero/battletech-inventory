@@ -5,14 +5,14 @@
 <div class="container">
     <h1>Battlemech Inventory</h1>
     <div class="row">
-      <a href="{% url 'mech_create' %}"> Add a New Mech</a>
+      <p class="lead"><a href="{% url 'mech_create' %}"> Add a New Mech <i class="fas fa-plus-square"></i></a></p>
     </div>
     <div class="row">
 
         <!-- Mech Entries -->
         <div class="col-12 mt-3 left">
             <div class="row">
-                <table class="table">
+                <table class="table table-sm text-center">
                     <thead>
                       <tr>
                         <th scope="col">Name</th>
@@ -28,7 +28,7 @@
                         </td>
                         <td>
                           <div class="dropdown show">                 
-                            <button class="btn btn-secondary dropdown-toggle btn-block" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <button class="btn dropdown-toggle btn-block" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                               <i class="fa fa-cogs"></i> Menu</a>
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -41,7 +41,7 @@
                                   <span class="icon-mixed"></span>
                                 {% endif %} View Mech
                               </a>
-                              <a class="dropdown-item" href="{{ baseUrl }}/readouts/{{ mech.record_sheet }}.pdf" download><i class="fa fa-download"></i> Download</a>
+                              <a class="dropdown-item " href="{{ baseUrl }}/readouts/{{ mech.record_sheet }}.pdf" download><i class="fa fa-download"></i> Download</a>
                               <a class="dropdown-item" href="{% url 'mech_update' mech.slug %}"><i class="fa fa-edit"></i> Edit</a>
                               <a class="dropdown-item" href="{% url 'mech_delete' mech.slug %}"><i class="fa fa-trash"></i> Delete</a>
                             </div>

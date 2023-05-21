@@ -30,7 +30,7 @@ class ActiveMechList(generic.ListView):
 class MechDetail(generic.ListView):
     
     def get(self, request, slug, *args, **kwargs):
-        queryset = Mech.objects.filter(status=1)
+        queryset = Mech.objects.all()
         mech = get_object_or_404(queryset, slug=slug)
         return render(
             request,

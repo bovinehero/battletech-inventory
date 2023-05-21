@@ -52,15 +52,60 @@
     
 }
 
-
-body {
-    background-color: #9f9f9f;
-    color: #212529;
-    /* font-family: battleTechFont; */
-    font-family: 'Open Sans', sans-serif;
+:root {
+  --color-yellow: #ffdb58;
+  --color-text: #201b1f;
+  --color-gray: #4f484b;
+  --color-off-gray: #857a71;
+  --color-white: #ffffff;
+  --color-brown: #665e57;
 }
 
+body {
+    background-color: var(--color-brown);
+    color: var(--color-text);
+    /* font-family: battleTechFont; */
+    font-family: 'Open Sans', sans-serif;
+    background: url('../images/hero/2019-battletech-4k_1547938494.jpg') no-repeat center bottom fixed, var(--color-text);
 
+}
+
+main {
+  /* max-height: 100vh; */
+}
+
+a:link {
+  color: var(--color-text);
+}
+
+a:visited {
+  color: var(--color-text);
+}
+
+a:focus {
+  text-decoration: none;
+  color: var(--color-yellow);
+}
+
+a:hover {
+  text-decoration: none;
+  color: var(--color-yellow);
+}
+
+a:active {
+  color: var(--color-text);
+}
+
+.container {
+  background: var(--color-white);
+  border: 10px solid var(--color-yellow);
+  /* height:100%; */
+  /* width: 100%; */
+}
+
+.message-container {
+  border: none;
+}
 /* from https://www.w3schools.com/howto/howto_css_responsive_iframes.asp */
 
 .iframe-container {

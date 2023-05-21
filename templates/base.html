@@ -52,7 +52,7 @@
             </ul>
         </div>
     </nav>
-    <div class="container">
+    <div class="container message-container">
         <div class="row">
             <div class="col-md-8 offset-md-2">
                 {% for message in messages %}
@@ -65,7 +65,8 @@
         </div>
     </div>
 
-    <main class="flex-shrink-0 main-bg">
+    <!-- <main class="flex-shrink-0 main-bg"> -->
+    <main class="d-flex align-items-center">
         {% block content %}
         <!-- Content Goes here -->
         {% endblock content %}
