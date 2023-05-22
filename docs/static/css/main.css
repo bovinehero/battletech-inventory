@@ -45,10 +45,10 @@
     font-family: battleTechFont;
     /* This is the Title */
 
-    /* src: url(fonts/battletecholdstyle_211102.otf); */
+    /* src: url(../fonts/battletecholdstyle_211102.otf); */
 
     /* This is the alt Title */
-    src: url(fonts/loxx.ttf);
+    src: url(loxx.ttf);
     
 }
 

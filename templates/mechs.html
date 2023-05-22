@@ -43,7 +43,7 @@
                                   <span class="icon-mixed"></span>
                                 {% endif %} View Mech
                               </a>
-                              <a class="dropdown-item " href="{{ baseUrl }}/readouts/{{ mech.record_sheet }}.pdf" download><i class="fa fa-download"></i> Download</a>
+                              <a class="dropdown-item " href="{{ baseUrl }}/images/readouts/{{ mech.record_sheet }}.pdf" download><i class="fa fa-download"></i> Download</a>
                               <a class="dropdown-item" href="{% url 'mech_update' mech.slug %}"><i class="fa fa-edit"></i> Edit</a>
                               <a class="dropdown-item" href="{% url 'mech_delete' mech.slug %}"><i class="fa fa-trash"></i> Delete</a>
                             </div>
