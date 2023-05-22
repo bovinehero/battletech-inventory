@@ -39,6 +39,7 @@ else:
     # Add in the app name e.g django-starter.herokuapp.com
     # ALLOWED_HOSTS = ["django-starter.herokuapp.com", "localhost", "127.0.0.1"]
 
+CORS_ALLOWED_ORIGINS = ['https://bhero-battletech-inventory.herokuapp.com']
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 
@@ -49,13 +50,22 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    'django.contrib.sites',
     'django.contrib.messages',
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
+    'crispy_forms',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
     'webapp',
 ]
 
+SITE_ID = 1
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
 MESSAGE_TAGS = {
     messages.DEBUG: 'alert-info',
