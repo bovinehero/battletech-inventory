@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.messages',
     'cloudinary_storage',
+    'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     'cloudinary',
     'crispy_forms',
@@ -166,7 +167,7 @@ USE_TZ = True
 
 
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 MEDIA_URL = 'media/'
 
 STATICFILES_DIRS = [
@@ -174,10 +175,11 @@ STATICFILES_DIRS = [
 ]
 # STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles/")
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 MEDIA_ROOT = os.path.join(BASE_DIR, "mediafiles/")
 
-STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+STATIC_HOST = ""#"https://d4663kmspf1sqa.cloudfront.net" if not DEBUG else ""
+# STATIC_URL = STATIC_HOST + "/static/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

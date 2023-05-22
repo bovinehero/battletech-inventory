@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+/* Custom icons for tech level */
+@font-face {
+    font-family: 'icomoon';
+    src:  url('../fonts/icomoon.eot?ueze9l');
+    src:  url('../fonts/icomoon.eot?ueze9l#iefix') format('embedded-opentype'),
+      url('../fonts/icomoon.ttf?ueze9l') format('truetype'),
+      url('../fonts/icomoon.woff?ueze9l') format('woff'),
+      url('../fonts/icomoon.svg?ueze9l#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+  }
+  
+  [class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+  
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .icon-mixed:before {
+    content: "\e900";
+    font-size: x-large;
+  }
+  .icon-clan:before {
+    content: "\e901";
+    font-size: x-large;
+  }
+  .icon-inner-sphere:before {
+    content: "\e902";
+    font-size: x-large;
+  }
+
+@font-face {
+    font-family: battleTechFont;
+    /* This is the Title */
+
+    /* src: url(fonts/battletecholdstyle_211102.otf); */
+
+    /* This is the alt Title */
+    src: url(fonts/loxx.ttf);
+    
+}
+
+:root {
+  --color-yellow: #ffdb58;
+  --color-text: #201b1f;
+  --color-gray: #4f484b;
+  --color-off-gray: #857a71;
+  --color-white: #ffffff;
+  --color-brown: #665e57;
+}
+
+body {
+    background-color: var(--color-brown);
+    color: var(--color-text);
+    /* font-family: battleTechFont; */
+    font-family: 'Open Sans', sans-serif;
+    background: url('../images/hero/2019-battletech-4k_1547938494.jpg') no-repeat center bottom fixed, var(--color-text);
+
+}
+
+main {
+  /* max-height: 100vh; */
+}
+
+a:link {
+  color: var(--color-text);
+}
+
+a:visited {
+  color: var(--color-text);
+}
+
+a:focus {
+  text-decoration: none;
+  color: var(--color-yellow);
+}
+
+a:hover {
+  text-decoration: none;
+  color: var(--color-yellow);
+}
+
+a:active {
+  color: var(--color-text);
+}
+
+.container {
+  background: var(--color-white);
+  border: 10px solid var(--color-yellow);
+  /* height:100%; */
+  /* width: 100%; */
+}
+
+.message-container {
+  border: none;
+}
+/* from https://www.w3schools.com/howto/howto_css_responsive_iframes.asp */
+
+.iframe-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+}
+
+
+.image-container {
+  position: relative;
+}
+
+/* Then style the iframe to fit in the container div with full height and width */
+.responsive-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
