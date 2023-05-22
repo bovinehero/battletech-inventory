@@ -11,7 +11,6 @@ class CreateMechForm(forms.ModelForm):
             'weight',
             'tech_level',
             'role',
-            'slug',
             'description',
             'record_sheet',
             'battle_value',
@@ -28,7 +27,7 @@ class UpdateMechForm(forms.ModelForm):
             'weight',
             'tech_level',
             'role',
-            'slug',
+            # 'slug',
             'description',
             'record_sheet',
             'battle_value',
@@ -45,7 +44,7 @@ class CreatePilotForm(forms.ModelForm):
             'piloting',
             'experience',
             'edge',
-            'slug',
+            # 'slug',
             'status'
         ]
 
@@ -59,6 +58,6 @@ class UpdatePilotForm(forms.ModelForm):
             'piloting',
             'experience',
             'edge',
-            'slug',
+            # 'slug',
             'status'
         ]

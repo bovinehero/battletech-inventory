@@ -1,6 +1,8 @@
 from django.db import models
 from django.shortcuts import reverse
 import itertools
+from django.utils.text import slugify
+
 
 # Create your models here.
 
@@ -26,6 +28,11 @@ class Pilot(models.Model):
     slug = models.SlugField(max_length=200, unique=True)
     status = models.IntegerField(choices=STATUS, default=0)
 
+    def save(self, *args, **kwargs):
+        value = self.callsign
+        self.slug = slugify(value, allow_unicode=True)
+        super().save(*args, **kwargs)
+
     def __str__(self):
         return self.callsign
     
@@ -44,6 +51,11 @@ class Mech(models.Model):
     battle_value = models.IntegerField(default=9999)
     status = models.IntegerField(choices=STATUS, default=0)
 
+    def save(self, *args, **kwargs):
+        value = self.name
+        self.slug = slugify(value, allow_unicode=True)
+        super().save(*args, **kwargs)
+
     def __str__(self):
         return self.name
     
@@ -56,3 +68,8 @@ class ActiveMech(models.Model):
                                  related_name="active_pilot")
     status = models.IntegerField(choices=STATUS, default=0)
     slug = models.SlugField(max_length=200, unique=True)
+
+    def save(self, *args, **kwargs):
+        value = self.name
+        self.slug = slugify(value, allow_unicode=True)
+        super().save(*args, **kwargs)

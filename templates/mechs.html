@@ -3,14 +3,16 @@
 {% block content %}
 
 <div class="container">
-    <h1>Battlemech Inventory</h1>
+    <h1>Battlemechs</h1>
     <div class="row">
-      <p class="lead"><a href="{% url 'mech_create' %}"> Add a New Mech <i class="fas fa-plus-square"></i></a></p>
+      <div class="col-sm-6 col-sm-offset-3">
+        <p class="lead"><a href="{% url 'mech_create' %}"> Add a New Mech <i class="fas fa-plus-square"></i></a></p>
+      </div>
     </div>
     <div class="row">
 
         <!-- Mech Entries -->
-        <div class="col-12 mt-3 left">
+        <div class="col-12">
             <div class="row">
                 <table class="table table-sm text-center">
                     <thead>
