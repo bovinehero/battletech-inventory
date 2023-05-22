@@ -33,7 +33,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = os.environ.get('DEBUG', False)
 
 if DEBUG:
-    ALLOWED_HOSTS = []
+    ALLOWED_HOSTS = ["bhero-battletech-inventory.herokuapp.com", "localhost", "127.0.0.1"]
 else:
     ALLOWED_HOSTS = ["bhero-battletech-inventory.herokuapp.com", "localhost", "127.0.0.1"]
     # Add in the app name e.g django-starter.herokuapp.com
