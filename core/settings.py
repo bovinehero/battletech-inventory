@@ -36,11 +36,10 @@ if DEBUG:
     ALLOWED_HOSTS = ["bhero-battletech-inventory.herokuapp.com", "localhost", "127.0.0.1"]
 else:
     ALLOWED_HOSTS = ["bhero-battletech-inventory.herokuapp.com", "localhost", "127.0.0.1"]
-    X_FRAME_OPTIONS = 'SAMEORIGIN'
     # Add in the app name e.g django-starter.herokuapp.com
     # ALLOWED_HOSTS = ["django-starter.herokuapp.com", "localhost", "127.0.0.1"]
-    
-X_FRAME_OPTIONS = 'SAMEORIGIN'
+
+# X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 
 # Application definition
