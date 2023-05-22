@@ -39,7 +39,7 @@ else:
     # Add in the app name e.g django-starter.herokuapp.com
     # ALLOWED_HOSTS = ["django-starter.herokuapp.com", "localhost", "127.0.0.1"]
 
-# X_FRAME_OPTIONS = 'SAMEORIGIN'
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 
 # Application definition
@@ -99,19 +99,9 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-# Use a remote db if defined.
-if os.environ.get('DATABASE_URL'):
-    DATABASES = {
+DATABASES = {
         'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
-    }
-
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    } 
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
